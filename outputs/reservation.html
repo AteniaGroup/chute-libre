@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Réservez votre saut en parachute en ligne chez Chute Libre Péronne. Tandem, PAC et options vidéo disponibles.">
+    <title>Réservation Saut en Parachute | Chute Libre Péronne - Réservez en Ligne</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.6s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .preloader-ring {
+            border: 3px solid rgba(255, 99, 71, 0.2);
+            border-top: 3px solid #ff6347;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Navbar */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 99, 71, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        #navbar.scrolled {
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.8rem;
+            color: #ff6347;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #ff6347;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #ff6347, #ff4500);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 99, 71, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            color: #e0e0e0;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header h1 .highlight {
+            color: #ff6347;
+        }
+
+        /* Step Indicator */
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .step-indicator::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 99, 71, 0.1);
+            z-index: 0;
+        }
+
+        .step-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 99, 71, 0.1);
+            border: 2px solid rgba(255, 99, 71, 0.3);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            color: #888;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-dot.active {
+            background: #ff6347;
+            border-color: #ff6347;
+            color: white;
+            box-shadow: 0 0 20px rgba(255, 99, 71, 0.4);
+        }
+
+        .step-dot.completed {
+            background: rgba(255, 99, 71, 0.3);
+            border-color: #ff6347;
+            color: #ff6347;
+        }
+
+        /* Step Content */
+        .step-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Formula Cards */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .formula-card {
+            background: linear-gradient(135deg, rgba(255, 99, 71, 0.1), rgba(255, 69, 0, 0.05));
+            border: 2px solid rgba(255, 99, 71, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .formula-card:hover {
+            border-color: rgba(255, 99, 71, 0.5);
+            background: linear-gradient(135deg, rgba(255, 99, 71, 0.15), rgba(255, 69, 0, 0.1));
+        }
+
+        .formula-card.selected {
+            border-color: #ff6347;
+            background: linear-gradient(135deg, rgba(255, 99, 71, 0.2), rgba(255, 69, 0, 0.15));
+            box-shadow: 0 0 20px rgba(255, 99, 71, 0.2);
+        }
+
+        .formula-card h3 {
+            font-size: 1.1rem;
+            color: #ff6347;
+            margin-bottom: 0.5rem;
+        }
+
+        .formula-card .price {
+            font-size: 1.8rem;
+            color: #ff6347;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .formula-card p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Checkbox */
+        .checkbox-group {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 99, 71, 0.05);
+            border: 1px solid rgba(255, 99, 71, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .checkbox-group .price-addon {
+            color: #ff6347;
+            font-weight: 600;
+        }
+
+        /* Calendar */
+        .calendar-section {
+            margin-bottom: 2rem;
+        }
+
+        .calendar {
+            background: rgba(255, 99, 71, 0.05);
+            border: 1px solid rgba(255, 99, 71, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .calendar-header h3 {
+            color: #ff6347;
+            font-size: 1.2rem;
+        }
+
+        .calendar-header button {
+            background: rgba(255, 99, 71, 0.2);
+            border: 1px solid rgba(255, 99, 71, 0.3);
+            color: #ff6347;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-header button:hover {
+            background: rgba(255, 99, 71, 0.3);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 99, 71, 0.05);
+            border: 1px solid rgba(255, 99, 71, 0.1);
+            border-radius: 6px;
+            cursor: pointer;
+            color: #888;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-day.selectable {
+            color: #e0e0e0;
+            cursor: pointer;
+        }
+
+        .calendar-day.selectable:hover {
+            background: rgba(255, 99, 71, 0.15);
+            border-color: rgba(255, 99, 71, 0.3);
+        }
+
+        .calendar-day.selected {
+            background: #ff6347;
+            border-color: #ff6347;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Time Slots */
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .time-slot {
+            padding: 1rem;
+            background: rgba(255, 99, 71, 0.05);
+            border: 2px solid rgba(255, 99, 71, 0.2);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #b0b0b0;
+        }
+
+        .time-slot:hover {
+            border-color: rgba(255, 99, 71, 0.5);
+            background: rgba(255, 99, 71, 0.1);
+        }
+
+        .time-slot.selected {
+            background: #ff6347;
+            border-color: #ff6347;
+            color: white;
+        }
+
+        /* Form Inputs */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            background: rgba(255, 99, 71, 0.05);
+            border: 1px solid rgba(255, 99, 71, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: #666;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: rgba(255, 99, 71, 0.5);
+            background: rgba(255, 99, 71, 0.08);
+            box-shadow: 0 0 0 3px rgba(255, 99, 71, 0.1);
+        }
+
+        .agreement-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 99, 71, 0.05);
+            border: 1px solid rgba(255, 99, 71, 0.2);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .agreement-checkbox input[type="checkbox"] {
+            margin-top: 0.3rem;
+            cursor: pointer;
+        }
+
+        .agreement-checkbox label {
+            cursor: pointer;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        /* Summary Box */
+        .summary-box {
+            background: linear-gradient(135deg, rgba(255, 99, 71, 0.1), rgba(255, 69, 0, 0.05));
+            border: 1px solid rgba(255, 99, 71, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-box h3 {
+            color: #ff6347;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 99, 71, 0.1);
+        }
+
+        .summary-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .summary-item span:first-child {
+            color: #b0b0b0;
+        }
+
+        .summary-item span:last-child {
+            color: #e0e0e0;
+            font-weight: 600;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid rgba(255, 99, 71, 0.3);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .summary-total span:last-child {
+            color: #ff6347;
+        }
+
+        /* Payment Form */
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .payment-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-prev {
+            background: rgba(255, 99, 71, 0.1);
+            color: #ff6347;
+            border: 1px solid rgba(255, 99, 71, 0.3);
+        }
+
+        .btn-prev:hover {
+            background: rgba(255, 99, 71, 0.2);
+        }
+
+        .btn-next,
+        .btn-pay {
+            background: linear-gradient(135deg, #ff6347, #ff4500);
+            color: white;
+        }
+
+        .btn-next:hover,
+        .btn-pay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 99, 71, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(255, 99, 71, 0.15), rgba(255, 69, 0, 0.1));
+            border: 1px solid rgba(255, 99, 71, 0.3);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .modal-content h2 {
+            color: #ff6347;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+        }
+
+        .modal-content .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background: #050505;
+            border-top: 1px solid rgba(255, 99, 71, 0.1);
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: #ff6347;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: #ff6347;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 99, 71, 0.1);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-row {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .step-indicator {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader-ring"></div>
+    </div>
+
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <div class="nav-logo">CHUTE LIBRE</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="tandem.html">Tandem</a></li>
+                <li><a href="pac.html">PAC</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="reservation.html" class="nav-cta">Réserver</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>Réservez votre <span class="highlight">saut</span></h1>
+        </div>
+
+        <!-- Step Indicator -->
+        <div class="step-indicator">
+            <button class="step-dot active" data-step="1">1</button>
+            <button class="step-dot" data-step="2">2</button>
+            <button class="step-dot" data-step="3">3</button>
+            <button class="step-dot" data-step="4">4</button>
+        </div>
+
+        <!-- Step 1: Formula -->
+        <div class="step-content active" data-step="1">
+            <h2 style="color: #ff6347; margin-bottom: 2rem;">Étape 1: Choisissez votre formule</h2>
+
+            <div class="grid-3">
+                <div class="formula-card" onclick="selectFormula(this, 'tandem-semaine', 240)">
+                    <h3>Tandem Semaine</h3>
+                    <div class="price">240€</div>
+                    <p>Du lundi au vendredi</p>
+                </div>
+                <div class="formula-card" onclick="selectFormula(this, 'tandem-weekend', 270)">
+                    <h3>Tandem Week-end</h3>
+                    <div class="price">270€</div>
+                    <p>Samedi et dimanche</p>
+                </div>
+                <div class="formula-card" onclick="selectFormula(this, 'pac-init', 490)">
+                    <h3>PAC Initiation</h3>
+                    <div class="price">490€</div>
+                    <p>Programme de formation</p>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="videoOption" onchange="updateFormData()">
+                <label for="videoOption">
+                    Ajouter une vidéo de votre saut
+                    <span class="price-addon">+120€</span>
+                </label>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-next" onclick="nextStep()">Suivant</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Date & Time -->
+        <div class="step-content" data-step="2">
+            <h2 style="color: #ff6347; margin-bottom: 2rem;">Étape 2: Choisissez la date et l'heure</h2>
+
+            <div class="calendar-section">
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <button onclick="prevMonth()">&lt; Précédent</button>
+                        <h3 id="currentMonth">Avril 2026</h3>
+                        <button onclick="nextMonth()">Suivant &gt;</button>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid"></div>
+                </div>
+
+                <h3 style="color: #ff6347; margin-bottom: 1rem;">Heures disponibles</h3>
+                <div class="time-slots">
+                    <button class="time-slot" onclick="selectTime(this)">09:00</button>
+                    <button class="time-slot" onclick="selectTime(this)">10:00</button>
+                    <button class="time-slot" onclick="selectTime(this)">11:00</button>
+                    <button class="time-slot" onclick="selectTime(this)">14:00</button>
+                    <button class="time-slot" onclick="selectTime(this)">15:00</button>
+                    <button class="time-slot" onclick="selectTime(this)">16:00</button>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-prev" onclick="prevStep()">Précédent</button>
+                <button class="btn btn-next" onclick="nextStep()">Suivant</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Information -->
+        <div class="step-content" data-step="3">
+            <h2 style="color: #ff6347; margin-bottom: 2rem;">Étape 3: Vos informations</h2>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <input type="text" placeholder="Prénom" id="firstName" onchange="updateFormData()" required>
+                    <input type="text" placeholder="Nom" id="lastName" onchange="updateFormData()" required>
+                </div>
+                <input type="email" placeholder="Email" id="email" onchange="updateFormData()" required>
+                <input type="tel" placeholder="Téléphone" id="phone" onchange="updateFormData()" required>
+                <div class="form-row">
+                    <input type="number" placeholder="Poids (kg)" id="weight" onchange="updateFormData()" required>
+                    <input type="number" placeholder="Âge" id="age" onchange="updateFormData()" required>
+                </div>
+            </div>
+
+            <div class="agreement-checkbox">
+                <input type="checkbox" id="medicalCert" onchange="updateFormData()">
+                <label for="medicalCert">J'atteste être en bonne santé et disposer d'un certificat médical valide</label>
+            </div>
+
+            <div class="agreement-checkbox">
+                <input type="checkbox" id="parentalAuth" onchange="updateFormData()">
+                <label for="parentalAuth">Je certifie être majeur(e) et autoriser la pratique du parachutisme</label>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-prev" onclick="prevStep()">Précédent</button>
+                <button class="btn btn-next" onclick="nextStep()">Suivant</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Payment -->
+        <div class="step-content" data-step="4">
+            <h2 style="color: #ff6347; margin-bottom: 2rem;">Étape 4: Paiement</h2>
+
+            <div class="summary-box">
+                <h3>Résumé de votre réservation</h3>
+                <div id="summaryContent">
+                    <div class="summary-item">
+                        <span>Formule</span>
+                        <span id="summaryFormula">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Date</span>
+                        <span id="summaryDate">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Heure</span>
+                        <span id="summaryTime">-</span>
+                    </div>
+                    <div class="summary-item" id="videoSummary" style="display: none;">
+                        <span>Option vidéo</span>
+                        <span>+120€</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="totalPrice">0€</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: #ff6347; margin-bottom: 1.5rem;">Informations de paiement</h3>
+            <form class="payment-form" onsubmit="processPayment(event)">
+                <input type="text" placeholder="Nom du titulaire" required>
+                <input type="text" placeholder="Numéro de carte" maxlength="19" required>
+                <div class="payment-row">
+                    <input type="text" placeholder="MM/AA" maxlength="5" required>
+                    <input type="text" placeholder="CVC" maxlength="3" required>
+                    <input type="text" placeholder="Code postal" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-prev" onclick="prevStep()">Précédent</button>
+                    <button type="submit" class="btn btn-pay">Payer maintenant</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h2>✓ Réservation confirmée !</h2>
+            <p>Merci ! Votre réservation a été enregistrée avec succès. Un email de confirmation a été envoyé à votre adresse email.</p>
+            <button class="btn btn-next" onclick="location.href='index.html'">Retour à l'accueil</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>CHUTE LIBRE</h4>
+                <p>Aérodrome de Péronne<br>80200 Estrées-Mons</p>
+                <a href="tel:+33682693324">06 82 69 33 24</a>
+                <a href="mailto:info@chute-libre.net">info@chute-libre.net</a>
+            </div>
+            <div class="footer-col">
+                <h4>LIENS RAPIDES</h4>
+                <a href="index.html">Accueil</a>
+                <a href="tandem.html">Tandem</a>
+                <a href="pac.html">PAC</a>
+                <a href="tarifs.html">Tarifs</a>
+            </div>
+            <div class="footer-col">
+                <h4>INFORMATIONS</h4>
+                <a href="faq.html">FAQ</a>
+                <a href="galerie.html">Galerie</a>
+                <a href="contact.html">Contact</a>
+                <a href="reservation.html">Réserver</a>
+            </div>
+            <div class="footer-col">
+                <h4>LÉGAL</h4>
+                <p>XtremDay SARL</p>
+                <p>SIRET: 123 456 789 00001</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Chute Libre. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 500);
+        });
+
+        // Reservation data
+        let reservationData = {
+            formula: null,
+            formulaPrice: 0,
+            videoOption: false,
+            date: null,
+            time: null,
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            weight: '',
+            age: '',
+            medicalCert: false,
+            parentalAuth: false
+        };
+
+        let currentStep = 1;
+        let currentMonth = new Date(2026, 3); // April 2026
+
+        // Initialize calendar
+        function generateCalendar() {
+            const year = currentMonth.getFullYear();
+            const month = currentMonth.getMonth();
+
+            const monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+                               'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+            document.getElementById('currentMonth').textContent = monthNames[month] + ' ' + year;
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let grid = '';
+            const dayNames = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+
+            dayNames.forEach(day => {
+                grid += `<div style="text-align: center; color: #666; font-size: 0.8rem; font-weight: 600; padding: 0.5rem 0;">${day}</div>`;
+            });
+
+            for (let i = 0; i < firstDay; i++) {
+                grid += '<div class="calendar-day"></div>';
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateObj = new Date(year, month, day);
+                const dateStr = day.toString().padStart(2, '0') + '/' + (month + 1).toString().padStart(2, '0') + '/' + year;
+                grid += `<div class="calendar-day selectable" onclick="selectDate(this, '${dateStr}')">${day}</div>`;
+            }
+
+            document.getElementById('calendarGrid').innerHTML = grid;
+        }
+
+        function nextMonth() {
+            currentMonth.setMonth(currentMonth.getMonth() + 1);
+            generateCalendar();
+        }
+
+        function prevMonth() {
+            currentMonth.setMonth(currentMonth.getMonth() - 1);
+            generateCalendar();
+        }
+
+        function selectFormula(element, formula, price) {
+            document.querySelectorAll('.formula-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            reservationData.formula = formula;
+            reservationData.formulaPrice = price;
+            updateFormData();
+        }
+
+        function selectDate(element, date) {
+            document.querySelectorAll('.calendar-day.selected').forEach(day => {
+                day.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            reservationData.date = date;
+            updateFormData();
+        }
+
+        function selectTime(element) {
+            document.querySelectorAll('.time-slot.selected').forEach(slot => {
+                slot.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            reservationData.time = element.textContent;
+            updateFormData();
+        }
+
+        function nextStep() {
+            if (currentStep < 4) {
+                currentStep++;
+                updateStepDisplay();
+                if (currentStep === 2) {
+                    generateCalendar();
+                }
+                if (currentStep === 4) {
+                    updateSummaryDisplay();
+                }
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepDisplay();
+            }
+        }
+
+        function goToStep(step) {
+            currentStep = step;
+            updateStepDisplay();
+        }
+
+        function updateStepDisplay() {
+            document.querySelectorAll('.step-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelector(`.step-content[data-step="${currentStep}"]`).classList.add('active');
+
+            document.querySelectorAll('.step-dot').forEach(dot => {
+                dot.classList.remove('active');
+                if (parseInt(dot.dataset.step) < currentStep) {
+                    dot.classList.add('completed');
+                } else {
+                    dot.classList.remove('completed');
+                }
+            });
+            document.querySelector(`.step-dot[data-step="${currentStep}"]`).classList.add('active');
+
+            window.scrollTo(0, 0);
+        }
+
+        function updateFormData() {
+            reservationData.videoOption = document.getElementById('videoOption').checked;
+            reservationData.firstName = document.getElementById('firstName')?.value || '';
+            reservationData.lastName = document.getElementById('lastName')?.value || '';
+            reservationData.email = document.getElementById('email')?.value || '';
+            reservationData.phone = document.getElementById('phone')?.value || '';
+            reservationData.weight = document.getElementById('weight')?.value || '';
+            reservationData.age = document.getElementById('age')?.value || '';
+            reservationData.medicalCert = document.getElementById('medicalCert')?.checked || false;
+            reservationData.parentalAuth = document.getElementById('parentalAuth')?.checked || false;
+        }
+
+        function calculateTotal() {
+            let total = reservationData.formulaPrice || 0;
+            if (reservationData.videoOption) {
+                total += 120;
+            }
+            return total;
+        }
+
+        function updateSummaryDisplay() {
+            const formulaNames = {
+                'tandem-semaine': 'Tandem Semaine',
+                'tandem-weekend': 'Tandem Week-end',
+                'pac-init': 'PAC Initiation'
+            };
+
+            document.getElementById('summaryFormula').textContent = formulaNames[reservationData.formula] || '-';
+            document.getElementById('summaryDate').textContent = reservationData.date || '-';
+            document.getElementById('summaryTime').textContent = reservationData.time || '-';
+            document.getElementById('totalPrice').textContent = calculateTotal() + '€';
+
+            const videoSummary = document.getElementById('videoSummary');
+            if (reservationData.videoOption) {
+                videoSummary.style.display = 'flex';
+            } else {
+                videoSummary.style.display = 'none';
+            }
+        }
+
+        function processPayment(e) {
+            e.preventDefault();
+            document.getElementById('successModal').classList.add('active');
+            setTimeout(() => {
+                location.href = 'index.html';
+            }, 3000);
+        }
+
+        // Initialize
+        generateCalendar();
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
