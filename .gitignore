@@ -1,2 +1,8 @@
 .vercel
 .env*.local
+.DS_Store
+node_modules/
+audit.jsonl
+shim-lib/
+shim-perm/
+uploads/
