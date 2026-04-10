@@ -3,153 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie Photos & Vidéos Parachutisme | Chute Libre Péronne</title>
-    <meta name="description" content="Découvrez nos photos et vidéos de sauts en parachute à Chute Libre Péronne.">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Galerie Photos - Chute Libre</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Preloader -->
     <div class="preloader">
-        <div class="preloader-ring"></div>
+        <div class="preloader-spinner"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Chute Libre</a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="tandem.html">Tandem</a></li>
-                <li><a href="pac.html">PAC</a></li>
-                <li><a href="tarifs.html">Tarifs</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="reservation.html" class="nav-cta">Réserver</a></li>
-            </ul>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="nav-brand"><span class="brand-icon">🪂</span>Chute <span class="sky">Libre</span></a>
+            <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+            <nav class="nav-links">
+                <a href="index.html">Accueil</a><a href="tandem.html">Tandem</a><a href="pac.html">PAC</a>
+                <a href="tarifs.html">Tarifs</a><a href="galerie.html" class="active">Galerie</a><a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a><a href="reservation.html" class="nav-cta">Réserver</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Inner Hero -->
-    <div class="inner-hero" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
-        <h1>GALERIE</h1>
-        <p>Photos et vidéos de nos sauts</p>
-    </div>
+    <section class="inner-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a> / <span>Galerie</span>
+            </div>
+            <h1>Galerie Photos</h1>
+            <p>Découvrez les moments magiques capturés lors de nos sauts en parachute.</p>
+            <div class="inner-hero-fade">
+                <div></div>
+            </div>
+        </div>
+    </section>
 
     <!-- Main Content -->
     <main>
-        <!-- Photos Section -->
-        <section class="gallery-section">
+        <!-- Photo Gallery -->
+        <section class="section">
             <div class="container">
-                <h2>Nos Photos</h2>
-                <div class="masonry">
-                    <div class="masonry-item">
-                        <img src="https://chute-libre.net/images/tandem-sortie-avion.jpg" alt="Sortie avion en tandem">
-                        <div class="masonry-item-overlay">
-                            <span>+</span>
+                <div class="section-header">
+                    <h2>Nos Meilleures Photos</h2>
+                    <p>Des instants inoubliables figés pour l'éternité. Cliquez sur une photo pour l'agrandir.</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <!-- Image 1: Main hero image (span-2) -->
+                    <div class="gallery-item span-2" data-src="https://images.unsplash.com/photo-1601024445121-e5b82f020549?w=1200">
+                        <img src="https://images.unsplash.com/photo-1601024445121-e5b82f020549?w=800" alt="Tandem au coucher du soleil">
+                        <div class="gallery-overlay">
+                            <span class="zoom-icon">🔍</span>
                         </div>
                     </div>
-                    <div class="masonry-item">
-                        <img src="https://chute-libre.net/images/formation-group.jpg" alt="Formation en groupe">
-                        <div class="masonry-item-overlay">
-                            <span>+</span>
+
+                    <!-- Image 2: Formation acrobatique -->
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1474623809196-26c1d33457cc?w=1200">
+                        <img src="https://images.unsplash.com/photo-1474623809196-26c1d33457cc?w=800" alt="Formation en chute libre">
+                        <div class="gallery-overlay">
+                            <span class="zoom-icon">🔍</span>
                         </div>
                     </div>
-                    <div class="masonry-item">
-                        <img src="https://chute-libre.net/images/chute-libre-panorama.jpg" alt="Vue panoramique en chute">
-                        <div class="masonry-item-overlay">
-                            <span>+</span>
+
+                    <!-- Image 3: Moment d'adrénaline -->
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1503256740045-e7bcb2b4e379?w=1200">
+                        <img src="https://images.unsplash.com/photo-1503256740045-e7bcb2b4e379?w=800" alt="Moment de pur adrénaline">
+                        <div class="gallery-overlay">
+                            <span class="zoom-icon">🔍</span>
                         </div>
                     </div>
-                    <div class="masonry-item">
-                        <img src="https://chute-libre.net/images/ouverture-parachute.jpg" alt="Ouverture parachute">
-                        <div class="masonry-item-overlay">
-                            <span>+</span>
+
+                    <!-- Image 4: Parachute ouvert -->
+                    <div class="gallery-item span-2" data-src="https://images.unsplash.com/photo-1521673252667-e05da380b252?w=1200">
+                        <img src="https://images.unsplash.com/photo-1521673252667-e05da380b252?w=800" alt="Parachute ouvert">
+                        <div class="gallery-overlay">
+                            <span class="zoom-icon">🔍</span>
                         </div>
                     </div>
-                    <div class="masonry-item">
-                        <img src="https://chute-libre.net/images/cesna-preparation.jpg" alt="Cessna en préparation">
-                        <div class="masonry-item-overlay">
-                            <span>+</span>
+
+                    <!-- Image 5: Duo en tandem -->
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800" alt="Tandem en action">
+                        <div class="gallery-overlay">
+                            <span class="zoom-icon">🔍</span>
                         </div>
                     </div>
-                    <div class="masonry-item">
-                        <img src="https://chute-libre.net/images/groupe-moniteurs.jpg" alt="Équipe de moniteurs">
-                        <div class="masonry-item-overlay">
-                            <span>+</span>
-                        </div>
-                    </div>
-                    <div class="masonry-item">
-                        <img src="https://chute-libre.net/images/aeroport-paysage.jpg" alt="Vue aérodrome">
-                        <div class="masonry-item-overlay">
-                            <span>+</span>
-                        </div>
-                    </div>
-                    <div class="masonry-item">
-                        <img src="https://chute-libre.net/images/acrobaties-air.jpg" alt="Acrobaties aériennes">
-                        <div class="masonry-item-overlay">
-                            <span>+</span>
+
+                    <!-- Image 6: Action aérienne -->
+                    <div class="gallery-item span-row" data-src="https://images.unsplash.com/photo-1596466543789-1021cd0e9ebc?w=1200">
+                        <img src="https://images.unsplash.com/photo-1596466543789-1021cd0e9ebc?w=800" alt="Action aérienne spectaculaire">
+                        <div class="gallery-overlay">
+                            <span class="zoom-icon">🔍</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox" style="display: none;">
+            <span class="lightbox-close">&times;</span>
+            <button class="lightbox-prev">&#10094;</button>
+            <img id="lightbox-img" src="" alt="Gallery image">
+            <button class="lightbox-next">&#10095;</button>
+        </div>
+
         <!-- Video Section -->
-        <section class="video-section">
+        <section class="section bg-ice">
             <div class="container">
-                <h2>Nos Vidéos</h2>
-                <div class="map-container">
-                    <iframe src="https://www.youtube.com/embed/VqGxIqDAMpU" title="Vidéo Chute Libre" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="section-header">
+                    <h2>Vidéos de Nos Sauts</h2>
+                    <p>Revivez l'action avec nos vidéos en haute définition</p>
                 </div>
+
+                <div style="max-width: 800px; margin: 2rem auto;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(71, 153, 219, 0.15);">
+                        <iframe 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
+                            src="https://www.youtube.com/embed/O-_dK-Xl9KU" 
+                            title="Tandem en parachutisme" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen="">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <p style="font-size: 0.95rem; color: #666;">Plus de vidéos disponibles sur notre <a href="https://www.youtube.com" style="color: var(--primary-blue);">chaîne YouTube</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Testimonials with Images -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Témoignages de Nos Clients</h2>
+                    <p>Ce que disent ceux qui ont osé franchir le pas</p>
+                </div>
+
+                <div class="grid">
+                    <div class="card">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e0e7ff;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #4799db, #87ceeb); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">MC</div>
+                            <div>
+                                <strong>Marie C.</strong>
+                                <div style="font-size: 0.85rem; color: #666;">Avis vérifié</div>
+                            </div>
+                        </div>
+                        <p>"L'expérience la plus incroyable de ma vie ! L'équipe est super professionnelle et j'ai osé franchir mes peurs. À refaire 100 fois !"</p>
+                        <div style="margin-top: 1rem;">⭐⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div class="card">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e0e7ff;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #4799db, #87ceeb); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">JD</div>
+                            <div>
+                                <strong>Jean D.</strong>
+                                <div style="font-size: 0.85rem; color: #666;">Avis vérifié</div>
+                            </div>
+                        </div>
+                        <p>"Une vraie aventure ! Les instructeurs sont attentifs et rassurents. Les vidéos en HD capturent parfaitement le moment. Je recommande vivement !"</p>
+                        <div style="margin-top: 1rem;">⭐⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div class="card">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e0e7ff;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #4799db, #87ceeb); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">SL</div>
+                            <div>
+                                <strong>Sophie L.</strong>
+                                <div style="font-size: 0.85rem; color: #666;">Avis vérifié</div>
+                            </div>
+                        </div>
+                        <p>"J'avais peur mais l'accueil à Chute Libre était fantastique. Tout est encadré avec sérieux. Un moment magique inoubliable ! Merci !"</p>
+                        <div style="margin-top: 1rem;">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Stats -->
+        <section class="section bg-ice">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nos Chiffres</h2>
+                    <p>Depuis plus de 20 ans, Chute Libre crée des souvenirs inoubliables</p>
+                </div>
+
+                <div class="grid" style="max-width: 900px; margin: 2rem auto;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; font-weight: 700; color: var(--primary-blue);">5000+</div>
+                        <p style="margin-top: 0.5rem;">Sauts réalisés</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; font-weight: 700; color: var(--primary-blue);">20+</div>
+                        <p style="margin-top: 0.5rem;">Années d'expérience</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; font-weight: 700; color: var(--primary-blue);">100%</div>
+                        <p style="margin-top: 0.5rem;">Satisfait</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; font-weight: 700; color: var(--primary-blue);">10K+</div>
+                        <p style="margin-top: 0.5rem;">Photos en archive</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section cta-section">
+            <div class="container">
+                <h2>Créez Votre Propre Souvenir</h2>
+                <p>Rejoignez les milliers de parachutistes satisfaits</p>
+                <a href="reservation.html" class="btn btn-large">Réserver un Saut</a>
             </div>
         </section>
     </main>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <div class="lightbox-content">
-            <button class="lightbox-close">&times;</button>
-            <img class="lightbox-image" src="" alt="">
-        </div>
-    </div>
-
     <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>Chute Libre</h3>
-                <p>Sauts en parachute à Péronne</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">Chute <span class="sky">Libre</span></div>
+                    <p class="footer-desc">Centre de parachutisme à Péronne. Sauts en tandem et formations PAC depuis plus de 20 ans.</p>
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Accueil</a><a href="tandem.html">Tandem</a><a href="pac.html">PAC</a><a href="tarifs.html">Tarifs</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Infos</h4>
+                    <div class="footer-links">
+                        <a href="galerie.html">Galerie</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="reservation.html">Réserver</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <a href="tel:0682693324">06 82 69 33 24</a><a href="mailto:info@chute-libre.net">info@chute-libre.net</a><span>Aérodrome de Péronne</span><span>80200 Estrées-Mons</span>
+                    </div>
+                </div>
             </div>
-            <div class="footer-col">
-                <h3>Contact</h3>
-                <p>Aérodrome de Péronne<br>80200 Estrées-Mons</p>
-                <p>Tel: 06 82 69 33 24<br>Email: info@chute-libre.net</p>
+            <div class="footer-bottom">
+                <span>© 2024 Chute Libre — XtremDay SARL</span><span>Tous droits réservés</span>
             </div>
-            <div class="footer-col">
-                <h3>Navigation</h3>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="tandem.html">Tandem</a></li>
-                    <li><a href="pac.html">PAC</a></li>
-                    <li><a href="tarifs.html">Tarifs</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Légal</h3>
-                <ul>
-                    <li><a href="#">Mentions légales</a></li>
-                    <li><a href="#">Conditions d'utilisation</a></li>
-                    <li><a href="#">Politique de confidentialité</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 XtremDay SARL. Tous droits réservés.</p>
         </div>
     </footer>
 
     <script src="main.js"></script>
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', function() {
+                currentIndex = index;
+                openLightbox(this.dataset.src);
+            });
+        });
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.style.display = 'flex';
+        }
+
+        document.querySelector('.lightbox-close').addEventListener('click', function() {
+            lightbox.style.display = 'none';
+        });
+
+        document.querySelector('.lightbox-prev').addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            openLightbox(galleryItems[currentIndex].dataset.src);
+        });
+
+        document.querySelector('.lightbox-next').addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            openLightbox(galleryItems[currentIndex].dataset.src);
+        });
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') {
+                    document.querySelector('.lightbox-prev').click();
+                } else if (e.key === 'ArrowRight') {
+                    document.querySelector('.lightbox-next').click();
+                } else if (e.key === 'Escape') {
+                    lightbox.style.display = 'none';
+                }
+            }
+        });
+    </script>
 </body>
 </html>

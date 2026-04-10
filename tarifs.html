@@ -3,217 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez nos tarifs pour le saut en parachute en tandem et formation PAC. À partir de 240€ pour une expérience inoubliable à Péronne.">
-    <title>Tarifs Saut en Parachute 2024 | Chute Libre Péronne - À partir de 240€</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Tarifs - Chute Libre</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="dark-theme">
+<body>
     <!-- Preloader -->
     <div class="preloader">
-        <div class="preloader-ring"></div>
+        <div class="preloader-spinner"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-brand">
-                <a href="index.html" class="logo">Chute Libre</a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Accueil</a></li>
-                <li><a href="tandem.html" class="nav-link">Tandem</a></li>
-                <li><a href="pac.html" class="nav-link">PAC</a></li>
-                <li><a href="tarifs.html" class="nav-link active">Tarifs</a></li>
-                <li><a href="galerie.html" class="nav-link">Galerie</a></li>
-                <li><a href="faq.html" class="nav-link">FAQ</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <li><a href="reservation.html" class="nav-link nav-cta">Réserver</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="nav-brand"><span class="brand-icon">🪂</span>Chute <span class="sky">Libre</span></a>
+            <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+            <nav class="nav-links">
+                <a href="index.html">Accueil</a><a href="tandem.html">Tandem</a><a href="pac.html">PAC</a>
+                <a href="tarifs.html" class="active">Tarifs</a><a href="galerie.html">Galerie</a><a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a><a href="reservation.html" class="nav-cta">Réserver</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Inner Hero -->
     <section class="inner-hero">
-        <div class="inner-hero-bg">
-            <div class="hero-overlay" style="background: linear-gradient(135deg, var(--navy), var(--night-light))"></div>
-        </div>
-        <div class="inner-hero-content">
-            <h1 class="hero-title">TARIFS 2024</h1>
-            <p class="hero-subtitle">Découvrez nos offres pour vivre l'expérience ultime</p>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a> / <span>Tarifs</span>
+            </div>
+            <h1>Nos Tarifs</h1>
+            <p>Découvrez tous nos tarifs pour les sauts en tandem, formations PAC et services additionnels.</p>
+            <div class="inner-hero-fade">
+                <div></div>
+            </div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <section class="pricing-section py-80">
+    <main>
+        <!-- Tandem Section -->
+        <section class="section">
             <div class="container">
-                <!-- Saut en Tandem -->
-                <div class="pricing-table">
-                    <div class="pricing-header">
-                        <h2 class="pricing-title">Saut en Tandem</h2>
-                        <p class="pricing-subtitle">L'expérience classique en compagnie d'un instructeur</p>
+                <div class="section-header">
+                    <h2>Sauts en Tandem</h2>
+                    <p>L'expérience ultime de parachutisme pour tous les niveaux</p>
+                </div>
+                <div class="grid">
+                    <div class="pricing-card">
+                        <div class="pricing-badge">Populaire</div>
+                        <h3>Tandem Classique</h3>
+                        <div class="pricing-price"><span class="currency">€</span>240</div>
+                        <ul class="pricing-features">
+                            <li>Saut d'environ 45 minutes</li>
+                            <li>Altitude de saut : 3800m</li>
+                            <li>Chute libre : 10 minutes</li>
+                            <li>Équipement complet inclus</li>
+                            <li>Briefing de sécurité</li>
+                        </ul>
+                        <a href="reservation.html" class="btn">Réserver</a>
                     </div>
-                    <div class="pricing-grid">
-                        <div class="pricing-item">
-                            <div class="pricing-label">Semaine</div>
-                            <div class="pricing-amount">240€</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Week-end</div>
-                            <div class="pricing-amount">270€</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Libre</div>
-                            <div class="pricing-amount">299€</div>
-                        </div>
-                        <div class="pricing-item pricing-item-special">
-                            <div class="pricing-label">Groupes (5+)</div>
-                            <div class="pricing-amount">dès 215€</div>
-                        </div>
+
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Meilleur Choix</div>
+                        <h3>Tandem + Vidéo HD</h3>
+                        <div class="pricing-price"><span class="currency">€</span>299</div>
+                        <ul class="pricing-features">
+                            <li>Tout inclus dans l'offre classique</li>
+                            <li>Vidéo professionnelle HD</li>
+                            <li>Audio pendant la chute</li>
+                            <li>Montage professionnel</li>
+                            <li>Livraison par email</li>
+                        </ul>
+                        <a href="reservation.html" class="btn">Réserver</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-badge">Premium</div>
+                        <h3>Tandem + Vidéo</h3>
+                        <div class="pricing-price"><span class="currency">€</span>279</div>
+                        <ul class="pricing-features">
+                            <li>Tout inclus dans l'offre classique</li>
+                            <li>Vidéo embarquée standard</li>
+                            <li>Photos aériennes incluses</li>
+                            <li>Montage simple</li>
+                            <li>USB livré sur site</li>
+                        </ul>
+                        <a href="reservation.html" class="btn">Réserver</a>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Formation PAC -->
-                <div class="pricing-table">
-                    <div class="pricing-header">
-                        <h2 class="pricing-title">Formation PAC</h2>
-                        <p class="pricing-subtitle">Devenez parachutiste autonome</p>
+        <!-- PAC Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Formation PAC (Parachutisme Acrobatique Coordonné)</h2>
+                    <p>Progressez et obtenez vos brevets de parachutisme avec nos instructeurs qualifiés</p>
+                </div>
+                <div class="grid">
+                    <div class="pricing-card">
+                        <h3>PAC Initiation</h3>
+                        <div class="pricing-price"><span class="currency">€</span>490</div>
+                        <ul class="pricing-features">
+                            <li>Cours théorique complet</li>
+                            <li>Sauts d'entraînement</li>
+                            <li>2 instructeurs présents</li>
+                            <li>Vidéo de progression</li>
+                            <li>Matériel fourni</li>
+                            <li>Certificat de participation</li>
+                        </ul>
+                        <a href="reservation.html" class="btn">Réserver</a>
                     </div>
-                    <div class="pricing-grid">
-                        <div class="pricing-item">
-                            <div class="pricing-label">Initiation</div>
-                            <div class="pricing-amount">490€</div>
-                            <div class="pricing-details">1-2 jours • 2 sauts</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Complet</div>
-                            <div class="pricing-amount">1350€</div>
-                            <div class="pricing-details">5-7 jours • 7 sauts + brevet</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">+ Brevet FFVL</div>
-                            <div class="pricing-amount">1710€</div>
-                            <div class="pricing-details">Formation complète certifiée</div>
-                        </div>
+
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Recommandé</div>
+                        <h3>PAC Complet</h3>
+                        <div class="pricing-price"><span class="currency">€</span>1350</div>
+                        <ul class="pricing-features">
+                            <li>Formation complète 8 sauts</li>
+                            <li>Tous les niveaux de progression</li>
+                            <li>Coaching personnalisé</li>
+                            <li>Accès à nos simulateurs</li>
+                            <li>Repas et hébergement options</li>
+                            <li>Suivi après formation</li>
+                        </ul>
+                        <a href="reservation.html" class="btn">Réserver</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>PAC + Brevet A</h3>
+                        <div class="pricing-price"><span class="currency">€</span>1710</div>
+                        <ul class="pricing-features">
+                            <li>Formation PAC complète</li>
+                            <li>Examen pour Brevet A</li>
+                            <li>Licence fédérale</li>
+                            <li>Sauts d'examen inclus</li>
+                            <li>Documentation officielle</li>
+                            <li>Autonomie en tandem solo</li>
+                        </ul>
+                        <a href="reservation.html" class="btn">Réserver</a>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Options -->
-                <div class="pricing-table">
-                    <div class="pricing-header">
-                        <h2 class="pricing-title">Options</h2>
-                        <p class="pricing-subtitle">Améliorez votre expérience</p>
+        <!-- Options Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Options Supplémentaires</h2>
+                    <p>Complétez votre expérience avec ces services</p>
+                </div>
+                <div class="grid">
+                    <div class="pricing-card">
+                        <h3>Vidéo Embarquée</h3>
+                        <div class="pricing-price"><span class="currency">€</span>79</div>
+                        <ul class="pricing-features">
+                            <li>Caméra embarquée GoPro</li>
+                            <li>Enregistrement HD 60fps</li>
+                            <li>Fichier de haute qualité</li>
+                            <li>Montage simple inclus</li>
+                            <li>Livraison USB ou email</li>
+                        </ul>
+                        <a href="reservation.html" class="btn btn-secondary">Ajouter</a>
                     </div>
-                    <div class="pricing-grid">
-                        <div class="pricing-item">
-                            <div class="pricing-label">Vidéo HD</div>
-                            <div class="pricing-amount">105€</div>
-                            <div class="pricing-details">Semaine</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Vidéo HD</div>
-                            <div class="pricing-amount">135€</div>
-                            <div class="pricing-details">Week-end</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Photos</div>
-                            <div class="pricing-amount">Incluses</div>
-                            <div class="pricing-details">Dans la vidéo</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Sauts supplémentaires</div>
-                            <div class="pricing-amount">70€</div>
-                            <div class="pricing-details">Par saut</div>
-                        </div>
+
+                    <div class="pricing-card">
+                        <h3>Photos HD</h3>
+                        <div class="pricing-price"><span class="currency">€</span>59</div>
+                        <ul class="pricing-features">
+                            <li>Photographe en chute libre</li>
+                            <li>Minimum 100 photos</li>
+                            <li>Fichiers RAW inclus</li>
+                            <li>Edition professionnelle</li>
+                            <li>Accès cloud à vie</li>
+                        </ul>
+                        <a href="reservation.html" class="btn btn-secondary">Ajouter</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Combinaison Personnalisée</h3>
+                        <div class="pricing-price"><span class="currency">€</span>29</div>
+                        <ul class="pricing-features">
+                            <li>Votre couleur personnalisée</li>
+                            <li>Logo ou texte possible</li>
+                            <li>Taille adaptée</li>
+                            <li>À garder en souvenir</li>
+                            <li>Livraison incluse</li>
+                        </ul>
+                        <a href="reservation.html" class="btn btn-secondary">Ajouter</a>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Parachutistes confirmés -->
-                <div class="pricing-table">
-                    <div class="pricing-header">
-                        <h2 class="pricing-title">Parachutistes Confirmés</h2>
-                        <p class="pricing-subtitle">Pour nos clients expérimentés</p>
+        <!-- Confirmés Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Pour les Parachutistes Confirmés</h2>
+                    <p>Tarifs spéciaux pour nos membres réguliers et accès au matériel</p>
+                </div>
+                <div class="grid">
+                    <div class="pricing-card">
+                        <h3>Saut Individuel</h3>
+                        <div class="pricing-price"><span class="currency">€</span>25</div>
+                        <ul class="pricing-features">
+                            <li>Saut libre indépendant</li>
+                            <li>Matériel personnel possible</li>
+                            <li>Briefing rapide</li>
+                            <li>Support logistique</li>
+                            <li>Zone de saut réservée</li>
+                        </ul>
+                        <a href="reservation.html" class="btn btn-secondary">Réserver</a>
                     </div>
-                    <div class="pricing-grid">
-                        <div class="pricing-item">
-                            <div class="pricing-label">Solo (équipement personnel)</div>
-                            <div class="pricing-amount">70€</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Solo (location équipement)</div>
-                            <div class="pricing-amount">100€</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Formation avancée</div>
-                            <div class="pricing-amount">Sur demande</div>
-                        </div>
-                        <div class="pricing-item pricing-item-special">
-                            <div class="pricing-label">Groupe (3+ personnes)</div>
-                            <div class="pricing-amount">60€/pers</div>
-                        </div>
+
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Économies</div>
+                        <h3>Pack 10 Sauts</h3>
+                        <div class="pricing-price"><span class="currency">€</span>220</div>
+                        <ul class="pricing-features">
+                            <li>10 sauts dans l'année</li>
+                            <li>Économies : 30€ par saut</li>
+                            <li>Pass prioritaire</li>
+                            <li>Accès VIP au club</li>
+                            <li>Assurance complète</li>
+                        </ul>
+                        <a href="reservation.html" class="btn">Réserver</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Location Matériel Complet</h3>
+                        <div class="pricing-price"><span class="currency">€</span>45<span class="rv">/jour</span></div>
+                        <ul class="pricing-features">
+                            <li>Parachute principal + secours</li>
+                            <li>Altimètre et instruments</li>
+                            <li>Conteneur professionnel</li>
+                            <li>Dépôt de garantie (300€)</li>
+                            <li>Assurance incluse</li>
+                        </ul>
+                        <a href="reservation.html" class="btn btn-secondary">Louer</a>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Note -->
-                <div class="pricing-note">
-                    <p><strong>Note importante :</strong> Tous les tarifs incluent l'encadrement, l'équipement, l'assurance et le transport.</p>
+        <!-- Info Box - Group Rates -->
+        <section class="section bg-ice">
+            <div class="container">
+                <div class="info-box">
+                    <h3>Tarifs de Groupe</h3>
+                    <p>Vous êtes un groupe de 5 personnes ou plus ? Nous proposons des réductions spéciales !</p>
+                    <ul style="margin-top: 1.5rem;">
+                        <li><strong>5 à 10 personnes :</strong> -5% sur tous les tarifs</li>
+                        <li><strong>11 à 20 personnes :</strong> -10% sur tous les tarifs</li>
+                        <li><strong>Plus de 20 personnes :</strong> Tarifs personnalisés disponibles</li>
+                    </ul>
+                    <p style="margin-top: 1.5rem; font-size: 0.95rem;">Contactez-nous à <a href="tel:0682693324" style="color: var(--primary-blue);">06 82 69 33 24</a> ou <a href="mailto:info@chute-libre.net" style="color: var(--primary-blue);">info@chute-libre.net</a> pour obtenir un devis de groupe.</p>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="cta-section py-60 bg-navy">
+        <section class="section cta-section">
             <div class="container">
-                <h2 class="cta-title">Prêt à vivre l'aventure ?</h2>
-                <p class="cta-subtitle">Réservez votre saut dès maintenant</p>
-                <a href="reservation.html" class="btn btn-primary btn-lg">Réserver maintenant</a>
+                <h2>Prêt à sauter ?</h2>
+                <p>Réservez votre expérience inoubliable dès aujourd'hui</p>
+                <a href="reservation.html" class="btn btn-large">Réserver Maintenant</a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer bg-night">
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3 class="footer-title">Chute Libre</h3>
-                    <p class="footer-text">Vivez l'expérience du saut en parachute à Péronne avec nos instructeurs certifiés.</p>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">Chute <span class="sky">Libre</span></div>
+                    <p class="footer-desc">Centre de parachutisme à Péronne. Sauts en tandem et formations PAC depuis plus de 20 ans.</p>
                 </div>
-                <div class="footer-col">
-                    <h3 class="footer-title">Navigation</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="tandem.html">Tandem</a></li>
-                        <li><a href="pac.html">PAC</a></li>
-                        <li><a href="tarifs.html">Tarifs</a></li>
-                    </ul>
+                <div>
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Accueil</a><a href="tandem.html">Tandem</a><a href="pac.html">PAC</a><a href="tarifs.html">Tarifs</a>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h3 class="footer-title">Contact</h3>
-                    <ul class="footer-links">
-                        <li>Aérodrome de Péronne<br>80200 Estrées-Mons</li>
-                        <li><a href="tel:0682693324">06 82 69 33 24</a></li>
-                        <li><a href="mailto:info@chute-libre.net">info@chute-libre.net</a></li>
-                    </ul>
+                <div>
+                    <h4>Infos</h4>
+                    <div class="footer-links">
+                        <a href="galerie.html">Galerie</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="reservation.html">Réserver</a>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h3 class="footer-title">Informations</h3>
-                    <ul class="footer-links">
-                        <li><a href="galerie.html">Galerie</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Nous contacter</a></li>
-                        <li><a href="cadeau.html">Bons cadeaux</a></li>
-                    </ul>
+                <div>
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <a href="tel:0682693324">06 82 69 33 24</a><a href="mailto:info@chute-libre.net">info@chute-libre.net</a><span>Aérodrome de Péronne</span><span>80200 Estrées-Mons</span>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Chute Libre | XtremDay SARL</p>
+                <span>© 2024 Chute Libre — XtremDay SARL</span><span>Tous droits réservés</span>
             </div>
         </div>
     </footer>

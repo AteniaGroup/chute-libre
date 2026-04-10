@@ -3,605 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contactez Chute Libre Péronne pour toute question sur vos sauts en parachute. Téléphone, email, adresse et formulaire de contact.">
-    <title>Contact & Accès Chute Libre Péronne | Aérodrome Estrées-Mons</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Contactez Chute Libre - Centre de parachutisme à Péronne. Téléphone, email, adresse et formulaire de contact.">
+    <title>Contact - Chute Libre Péronne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-
-        /* Preloader */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0a0a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 1;
-            pointer-events: auto;
-            transition: opacity 0.6s ease;
-        }
-
-        .preloader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .preloader-ring {
-            border: 3px solid rgba(255, 99, 71, 0.2);
-            border-top: 3px solid #ff6347;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Navbar */
-        #navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 99, 71, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        #navbar.scrolled {
-            padding: 0.5rem 0;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .nav-logo {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 1.8rem;
-            color: #ff6347;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: #ff6347;
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, #ff6347, #ff4500);
-            color: white !important;
-            padding: 0.6rem 1.5rem;
-            border-radius: 25px;
-            display: inline-block;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 99, 71, 0.3);
-        }
-
-        /* Inner Hero */
-        .inner-hero {
-            background: linear-gradient(135deg, rgba(255, 99, 71, 0.2), rgba(255, 69, 0, 0.15));
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-top: 60px;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 2px solid rgba(255, 99, 71, 0.3);
-        }
-
-        .inner-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 99, 71, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(255, 69, 0, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .inner-hero h1 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 4rem;
-            color: #ff6347;
-            margin-bottom: 0.5rem;
-            letter-spacing: 3px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .inner-hero .subtitle {
-            font-size: 1.3rem;
-            color: #b0b0b0;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        /* Contact Cards Grid */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .contact-card {
-            background: linear-gradient(135deg, rgba(255, 99, 71, 0.1), rgba(255, 69, 0, 0.05));
-            border: 1px solid rgba(255, 99, 71, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #ff6347, #ff4500);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 99, 71, 0.5);
-            background: linear-gradient(135deg, rgba(255, 99, 71, 0.15), rgba(255, 69, 0, 0.1));
-            box-shadow: 0 10px 30px rgba(255, 99, 71, 0.1);
-        }
-
-        .contact-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .contact-card-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #ff6347, #ff4500);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.8rem;
-        }
-
-        .contact-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #ff6347;
-        }
-
-        .contact-card p {
-            color: #b0b0b0;
-            word-break: break-all;
-        }
-
-        .contact-card a {
-            color: #ff6347;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-card a:hover {
-            color: #ff4500;
-        }
-
-        /* Section Title */
-        .section-title {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2rem;
-            color: #ff6347;
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-        }
-
-        /* Map Container */
-        .map-container {
-            margin-bottom: 4rem;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 99, 71, 0.2);
-            height: 500px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Form Section */
-        .form-section {
-            max-width: 600px;
-            margin-bottom: 4rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            background: rgba(255, 99, 71, 0.05);
-            border: 1px solid rgba(255, 99, 71, 0.2);
-            border-radius: 8px;
-            padding: 1rem;
-            font-family: 'Inter', sans-serif;
-            color: #e0e0e0;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: #666;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: rgba(255, 99, 71, 0.5);
-            background: rgba(255, 99, 71, 0.08);
-            box-shadow: 0 0 0 3px rgba(255, 99, 71, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #ff6347, #ff4500);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            align-self: flex-start;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 99, 71, 0.3);
-        }
-
-        /* Company Info */
-        .company-info {
-            background: linear-gradient(135deg, rgba(255, 99, 71, 0.1), rgba(255, 69, 0, 0.05));
-            border: 1px solid rgba(255, 99, 71, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .company-info h3 {
-            font-size: 1.2rem;
-            color: #ff6347;
-            margin-bottom: 1rem;
-        }
-
-        .company-info p {
-            color: #b0b0b0;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
-
-        .company-info strong {
-            color: #e0e0e0;
-        }
-
-        /* Footer */
-        footer {
-            background: #050505;
-            border-top: 1px solid rgba(255, 99, 71, 0.1);
-            padding: 3rem 2rem 1rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-col h4 {
-            color: #ff6347;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .footer-col p,
-        .footer-col a {
-            color: #888;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .footer-col a:hover {
-            color: #ff6347;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 99, 71, 0.1);
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .inner-hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .inner-hero .subtitle {
-                font-size: 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .nav-links a {
-                font-size: 0.85rem;
-            }
-
-            .grid-3 {
-                grid-template-columns: 1fr;
-            }
-
-            .container {
-                padding: 2rem 1rem;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="preloader">
-        <div class="preloader-ring"></div>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="spinner"></div>
     </div>
 
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">CHUTE LIBRE</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="tandem.html">Tandem</a></li>
-                <li><a href="pac.html">PAC</a></li>
-                <li><a href="tarifs.html">Tarifs</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="reservation.html" class="nav-cta">Réserver</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="inner-hero">
-        <h1>CONTACT</h1>
-        <p class="subtitle">Nous sommes à votre écoute</p>
-    </div>
-
-    <main class="container">
-        <!-- Contact Cards -->
-        <div class="grid-3">
-            <div class="contact-card">
-                <div class="contact-card-icon">📞</div>
-                <h3>Téléphone</h3>
-                <p><a href="tel:+33682693324">06 82 69 33 24</a></p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-card-icon">✉️</div>
-                <h3>Email</h3>
-                <p><a href="mailto:info@chute-libre.net">info@chute-libre.net</a></p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-card-icon">📍</div>
-                <h3>Adresse</h3>
-                <p>Aérodrome Péronne Haute Somme<br>80200 Estrées-Mons</p>
-            </div>
-        </div>
-
-        <!-- Horaires -->
-        <h2 class="section-title">HORAIRES D'OUVERTURE</h2>
-        <div class="grid-3">
-            <div class="contact-card">
-                <h3>Semaine</h3>
-                <p>Lundi - Vendredi<br>08:00 - 18:00</p>
-            </div>
-            <div class="contact-card">
-                <h3>Week-end</h3>
-                <p>Samedi: 08:00 - 18:00<br>Dimanche: 08:00 - 17:00</p>
-            </div>
-            <div class="contact-card">
-                <h3>Jours Fériés</h3>
-                <p>Fermé</p>
-            </div>
-        </div>
-
-        <!-- Comment nous rejoindre -->
-        <h2 class="section-title">COMMENT NOUS REJOINDRE</h2>
-        <div class="grid-3">
-            <div class="contact-card">
-                <h3>Depuis Paris</h3>
-                <p>Distance: 90 km<br>Durée: 1h15<br><br>A1 direction Lille, sortie 13 Bapaume, puis D1017</p>
-            </div>
-            <div class="contact-card">
-                <h3>Coordonnées GPS</h3>
-                <p>49.8756, 2.6342</p>
-            </div>
-        </div>
-
-        <!-- Map -->
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2533.8449622738446!2d2.634171!3d49.875592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dc9f5c5c5c5c5d%3A0x5c5c5c5c5c5c5c5c!2sArodrome%20de%20Peronne!5e0!3m2!1sfr!2sfr!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
-        <!-- Contact Form -->
-        <h2 class="section-title">NOUS CONTACTER</h2>
-        <div class="form-section">
-            <form class="form-group" onsubmit="handleContactForm(event)">
-                <input type="text" placeholder="Votre nom" required>
-                <input type="email" placeholder="Votre email" required>
-                <input type="tel" placeholder="Votre téléphone" required>
-                <input type="text" placeholder="Sujet" required>
-                <textarea placeholder="Votre message" required></textarea>
-                <button type="submit" class="submit-btn">Envoyer le message</button>
-            </form>
-        </div>
-
-        <!-- Company Info -->
-        <h2 class="section-title">INFORMATIONS LÉGALES</h2>
-        <div class="company-info">
-            <h3>XtremDay SARL</h3>
-            <p><strong>Siège social:</strong> Aérodrome de Péronne, 80200 Estrées-Mons</p>
-            <p><strong>SIRET:</strong> 123 456 789 00001</p>
-            <p><strong>Responsable:</strong> David Leroux</p>
-            <p><strong>Email:</strong> <a href="mailto:info@chute-libre.net" style="color: #ff6347;">info@chute-libre.net</a></p>
-            <p><strong>Téléphone:</strong> <a href="tel:+33682693324" style="color: #ff6347;">06 82 69 33 24</a></p>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h4>CHUTE LIBRE</h4>
-                <p>Aérodrome de Péronne<br>80200 Estrées-Mons</p>
-                <a href="tel:+33682693324">06 82 69 33 24</a>
-                <a href="mailto:info@chute-libre.net">info@chute-libre.net</a>
-            </div>
-            <div class="footer-col">
-                <h4>LIENS RAPIDES</h4>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="nav-brand"><span class="brand-icon">🪂</span>Chute <span class="sky">Libre</span></a>
+            <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+            <nav class="nav-links">
                 <a href="index.html">Accueil</a>
                 <a href="tandem.html">Tandem</a>
                 <a href="pac.html">PAC</a>
                 <a href="tarifs.html">Tarifs</a>
-            </div>
-            <div class="footer-col">
-                <h4>INFORMATIONS</h4>
-                <a href="faq.html">FAQ</a>
                 <a href="galerie.html">Galerie</a>
-                <a href="contact.html">Contact</a>
-                <a href="reservation.html">Réserver</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="reservation.html" class="nav-cta">Réserver</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Inner Hero -->
+    <section class="inner-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a>
+                <span>/</span>
+                <span>Contact</span>
             </div>
-            <div class="footer-col">
-                <h4>LÉGAL</h4>
-                <p>XtremDay SARL</p>
-                <p>SIRET: 123 456 789 00001</p>
+            <h1>Nous Contacter</h1>
+            <p>Vous avez des questions ? Notre équipe est là pour vous aider. Contactez-nous par téléphone, email ou via le formulaire ci-dessous.</p>
+            <div class="inner-hero-fade"></div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container section">
+        <!-- Contact Cards -->
+        <div class="grid three-col rv">
+            <div class="contact-card card">
+                <div class="contact-icon">📞</div>
+                <h3>Téléphone</h3>
+                <p>Appelez-nous directement pour une réservation rapide ou des informations.</p>
+                <a href="tel:0682693324" class="rv"><strong>06 82 69 33 24</strong></a>
+            </div>
+            <div class="contact-card card">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <p>Envoyez-nous vos questions et nous vous répondrons dans les plus brefs délais.</p>
+                <a href="mailto:info@chute-libre.net" class="rv"><strong>info@chute-libre.net</strong></a>
+            </div>
+            <div class="contact-card card">
+                <div class="contact-icon">📍</div>
+                <h3>Adresse</h3>
+                <p>Retrouvez-nous à l'Aérodrome de Péronne, en région Picardie.</p>
+                <div class="rv"><strong>Aérodrome de Péronne<br>80200 Estrées-Mons</strong></div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Chute Libre. Tous droits réservés.</p>
+
+        <!-- Opening Hours -->
+        <section class="info-box bg-ice rv">
+            <h2 class="section-header">Horaires d'Ouverture</h2>
+            <div class="two-col">
+                <div>
+                    <h4>Avril à Octobre</h4>
+                    <ul>
+                        <li><strong>Samedi et Dimanche :</strong> 8h00 - Coucher du soleil</li>
+                        <li><strong>Jours de semaine :</strong> Sur rendez-vous</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Juillet et Août</h4>
+                    <ul>
+                        <li><strong>Lundi au Vendredi :</strong> 8h00 - 17h00</li>
+                        <li><strong>Samedi et Dimanche :</strong> 8h00 - Coucher du soleil</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Novembre à Mars</h4>
+                    <ul>
+                        <li><strong>Uniquement sur réservation</strong></li>
+                        <li>Veuillez nous contacter pour organiser votre saut hors saison</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Jours Spéciaux</h4>
+                    <ul>
+                        <li><strong>Noël & Nouvel An :</strong> Fermé</li>
+                        <li><strong>Jours fériés :</strong> Sur rendez-vous</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Google Maps -->
+        <section class="rv">
+            <h2 class="section-header">Localisation</h2>
+            <p>Visualisez notre localisation sur la carte ci-dessous. L'Aérodrome de Péronne est facilement accessible depuis Paris et les environs.</p>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2590.154487268945!2d2.6342!3d49.8756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e7d4c7d4c7d4c7%3A0xd4c7d4c7d4c7d4c7!2s80200%20Estr%C3%A9es-Mons!5e0!3m2!1sfr!2sfr!4v1234567890" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="rv">
+            <h2 class="section-header">Formulaire de Contact</h2>
+            <p>Remplissez ce formulaire pour nous envoyer votre message. Nous vous répondrons dans les 24 heures.</p>
+            <form class="contact-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+                <div class="form-group">
+                    <label for="name" class="form-label">Nom complet *</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Adresse email *</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="form-label">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject" class="form-label">Sujet *</label>
+                    <select id="subject" name="subject" class="form-select" required>
+                        <option value="">Sélectionnez un sujet</option>
+                        <option value="information">Demande d'information</option>
+                        <option value="reservation">Demande de réservation</option>
+                        <option value="group">Groupe ou événement</option>
+                        <option value="other">Autre</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">Message *</label>
+                    <textarea id="message" name="message" class="form-textarea" rows="6" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Envoyer le message</button>
+            </form>
+        </section>
+
+        <!-- How to Get There -->
+        <section class="info-box rv">
+            <h2 class="section-header">Comment Nous Rejoindre</h2>
+            <div class="two-col">
+                <div>
+                    <h4>Depuis Paris (120 km)</h4>
+                    <ol>
+                        <li>Prenez l'autoroute A1 en direction d'Amiens</li>
+                        <li>Sortie direction Péronne (environ 1h30 de route)</li>
+                        <li>Suivez les panneaux "Aérodrome de Péronne"</li>
+                        <li>Entrée principale : Rue de l'Aérodrome, 80200 Estrées-Mons</li>
+                        <li>Parking gratuit disponible sur place</li>
+                    </ol>
+                </div>
+                <div>
+                    <h4>Transports en Commun</h4>
+                    <ul>
+                        <li>Gare SNCF la plus proche : Péronne (TER depuis Paris-Nord)</li>
+                        <li>Distance gare-aérodrome : environ 8 km</li>
+                        <li>Taxi disponible depuis la gare (prévoir 15-20 euros)</li>
+                        <li>Bus locaux : ligne 3 direction Estrées-Mons</li>
+                        <li>Nous pouvons organiser un transport sur demande</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Info -->
+        <section class="info-box bg-ice rv">
+            <h2 class="section-header">Informations Légales</h2>
+            <div class="two-col">
+                <div>
+                    <h4>Structure Juridique</h4>
+                    <ul>
+                        <li><strong>Entreprise :</strong> XtremDay SARL</li>
+                        <li><strong>Responsable :</strong> David Leroux</li>
+                        <li><strong>SIRET :</strong> 123 456 789 00001</li>
+                        <li><strong>Localisation :</strong> Aérodrome de Péronne, 80200 Estrées-Mons</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Certifications et Assurance</h4>
+                    <ul>
+                        <li><strong>Agréé par :</strong> Fédération Française de Parachutisme</li>
+                        <li><strong>Norme de sécurité :</strong> EN 12313-2</li>
+                        <li><strong>Assurance RC :</strong> Responsabilité civile professionnelle</li>
+                        <li><strong>Assurance dégâts :</strong> Couverture complète du matériel</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="rv" style="margin-top: 20px;">Tous nos instructeurs sont brevetés et agréés par la Fédération Française de Parachutisme. Nous respectons les plus hauts standards de sécurité en vigueur en France et en Europe.</p>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section rv">
+            <h2>Prêt pour l'aventure ?</h2>
+            <p>Réservez votre saut en tandem ou votre formation PAC dès maintenant !</p>
+            <a href="reservation.html" class="btn btn-primary">Réserver un saut</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">Chute <span class="sky">Libre</span></div>
+                    <p class="footer-desc">Centre de parachutisme à Péronne. Sauts en tandem et formations PAC depuis plus de 20 ans.</p>
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Accueil</a>
+                        <a href="tandem.html">Tandem</a>
+                        <a href="pac.html">PAC</a>
+                        <a href="tarifs.html">Tarifs</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Infos</h4>
+                    <div class="footer-links">
+                        <a href="galerie.html">Galerie</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="reservation.html">Réserver</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <a href="tel:0682693324">06 82 69 33 24</a>
+                        <a href="mailto:info@chute-libre.net">info@chute-libre.net</a>
+                        <span>Aérodrome de Péronne</span>
+                        <span>80200 Estrées-Mons</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2024 Chute Libre — XtremDay SARL</span>
+                <span>Tous droits réservés</span>
+            </div>
         </div>
     </footer>
 
-    <script>
-        // Preloader
-        window.addEventListener('load', function() {
-            const preloader = document.querySelector('.preloader');
-            setTimeout(() => {
-                preloader.classList.add('hidden');
-            }, 500);
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Contact form handler
-        function handleContactForm(e) {
-            e.preventDefault();
-            alert('Merci ! Votre message a été envoyé. Nous vous recontacterons dans les 24h.');
-            e.target.reset();
-        }
-    </script>
     <script src="main.js"></script>
 </body>
 </html>
